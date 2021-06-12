@@ -1,0 +1,9 @@
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModels\bin\Debug\netcoreapp3.1\DomainModels.deps.json
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModels\bin\Debug\netcoreapp3.1\DomainModels.dll
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModels\bin\Debug\netcoreapp3.1\DomainModels.pdb
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModels\obj\Debug\netcoreapp3.1\DomainModels.csprojAssemblyReference.cache
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModels\obj\Debug\netcoreapp3.1\DomainModels.AssemblyInfoInputs.cache
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModels\obj\Debug\netcoreapp3.1\DomainModels.AssemblyInfo.cs
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModels\obj\Debug\netcoreapp3.1\DomainModels.csproj.CoreCompileInputs.cache
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModels\obj\Debug\netcoreapp3.1\DomainModels.dll
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModels\obj\Debug\netcoreapp3.1\DomainModels.pdb

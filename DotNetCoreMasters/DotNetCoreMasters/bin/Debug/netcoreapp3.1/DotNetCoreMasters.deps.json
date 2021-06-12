@@ -322,7 +322,18 @@
           "DotNetCoreMasters.dll": {}
         }
       },
+      "DomainModel/1.0.0": {
+        "runtime": {
+          "DomainModel.dll": {}
+        },
+        "compile": {
+          "DomainModel.dll": {}
+        }
+      },
       "Services/1.0.0": {
+        "dependencies": {
+          "DomainModel": "1.0.0"
+        },
         "runtime": {
           "Services.dll": {}
         },
@@ -2026,6 +2037,11 @@
   },
   "libraries": {
     "DotNetCoreMasters/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DomainModel/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

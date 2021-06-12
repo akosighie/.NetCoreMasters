@@ -1,0 +1,8 @@
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModel\bin\Debug\netstandard2.1\DomainModel.deps.json
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModel\bin\Debug\netstandard2.1\DomainModel.dll
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModel\bin\Debug\netstandard2.1\DomainModel.pdb
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModel\obj\Debug\netstandard2.1\DomainModel.AssemblyInfoInputs.cache
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModel\obj\Debug\netstandard2.1\DomainModel.AssemblyInfo.cs
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModel\obj\Debug\netstandard2.1\DomainModel.csproj.CoreCompileInputs.cache
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModel\obj\Debug\netstandard2.1\DomainModel.dll
+D:\.NetCoreMasters\DotNetCoreMasters\DomainModel\obj\Debug\netstandard2.1\DomainModel.pdb
