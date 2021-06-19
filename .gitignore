@@ -19,3 +19,5 @@ DotNetCoreMasters/DomainModel/obj/Debug/netstandard2.1/DomainModel.csproj.CoreCo
 DotNetCoreMasters/DomainModel/bin/Debug/netstandard2.1/DomainModel.pdb
 DotNetCoreMasters/DotNetCoreMasters/bin/Debug/netcoreapp3.1/Services.pdb
 DotNetCoreMasters/Services/obj/Debug/netstandard2.1/Services.pdb
+DotNetCoreMasters/.vs/DotNetCoreMasters/DesignTimeBuild/.dtbcache.v2
+DotNetCoreMasters/.vs/DotNetCoreMasters/v16/.suo
