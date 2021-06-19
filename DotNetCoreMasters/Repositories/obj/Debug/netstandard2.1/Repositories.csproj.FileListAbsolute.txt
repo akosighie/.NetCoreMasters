@@ -1,0 +1,9 @@
+D:\.NetCoreMasters\DotNetCoreMasters\Repositories\bin\Debug\netstandard2.1\Repositories.deps.json
+D:\.NetCoreMasters\DotNetCoreMasters\Repositories\bin\Debug\netstandard2.1\Repositories.dll
+D:\.NetCoreMasters\DotNetCoreMasters\Repositories\bin\Debug\netstandard2.1\Repositories.pdb
+D:\.NetCoreMasters\DotNetCoreMasters\Repositories\obj\Debug\netstandard2.1\Repositories.csprojAssemblyReference.cache
+D:\.NetCoreMasters\DotNetCoreMasters\Repositories\obj\Debug\netstandard2.1\Repositories.AssemblyInfoInputs.cache
+D:\.NetCoreMasters\DotNetCoreMasters\Repositories\obj\Debug\netstandard2.1\Repositories.AssemblyInfo.cs
+D:\.NetCoreMasters\DotNetCoreMasters\Repositories\obj\Debug\netstandard2.1\Repositories.csproj.CoreCompileInputs.cache
+D:\.NetCoreMasters\DotNetCoreMasters\Repositories\obj\Debug\netstandard2.1\Repositories.dll
+D:\.NetCoreMasters\DotNetCoreMasters\Repositories\obj\Debug\netstandard2.1\Repositories.pdb

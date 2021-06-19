@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "TtddxFT/K44si57mxFhmTZvdmbX5H5hPOYLwISNHE5qD1AHMajFCVnEUIiIehYhHdGBSMw/ldHE609uXup97Nw==",
+  "dgSpecHash": "SanwzjjZXiRVbUoFlcAZdn2O9AwOj5XPi1EeIphj+R/ncBJVMVrbZrYisUbVfuKUPU0ILoM9r0lNrVhgqrydoA==",
   "success": true,
   "projectFilePath": "D:\\.NetCoreMasters\\DotNetCoreMasters\\Services\\Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mypc\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\mypc\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\mypc\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\mypc\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
   ],
   "logs": []

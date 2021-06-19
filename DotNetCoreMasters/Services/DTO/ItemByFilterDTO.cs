@@ -4,9 +4,7 @@ using System.Text;
 
 namespace Services.DTO
 {
-    public class ItemDTO
+    public class ItemByFilterDTO
     {
-        public string ItemName { get; set; }
-        public int ItemId { get; set; }
     }
 }

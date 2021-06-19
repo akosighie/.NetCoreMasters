@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Services.DTO
+namespace Repositories.DataContext
 {
-    public class ItemDTO
+    public class Item
     {
         public string ItemName { get; set; }
         public int ItemId { get; set; }

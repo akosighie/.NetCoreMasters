@@ -3,6 +3,7 @@ using DotNetCoreMasters.BindingModels;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 using Services.DTO;
+using Services.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,15 +15,17 @@ namespace DotNetCoreMasters.Controllers
     [Route("[controller]")]
     public class ItemsController : ControllerBase
     {
+        private readonly IItemService _itemService;
+
+        public ItemsController(IItemService itemService)
+        {
+            _itemService = itemService;
+        }
+
         [HttpGet]
         public IActionResult GetAll()
         {
-            var listItems = new List<string>()
-            {
-                "Item1",
-                "Item2",
-                "Item3"
-            };
+            var listItems = _itemService.GetAll().ToList();
 
             return Ok(listItems);
         }

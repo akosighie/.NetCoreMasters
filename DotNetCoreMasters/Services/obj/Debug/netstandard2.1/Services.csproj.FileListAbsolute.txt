@@ -10,3 +10,5 @@ D:\.NetCoreMasters\DotNetCoreMasters\Services\obj\Debug\netstandard2.1\Services.
 D:\.NetCoreMasters\DotNetCoreMasters\Services\bin\Debug\netstandard2.1\DomainModel.dll
 D:\.NetCoreMasters\DotNetCoreMasters\Services\bin\Debug\netstandard2.1\DomainModel.pdb
 D:\.NetCoreMasters\DotNetCoreMasters\Services\obj\Debug\netstandard2.1\Services.csproj.CopyComplete
+D:\.NetCoreMasters\DotNetCoreMasters\Services\bin\Debug\netstandard2.1\Repositories.dll
+D:\.NetCoreMasters\DotNetCoreMasters\Services\bin\Debug\netstandard2.1\Repositories.pdb
