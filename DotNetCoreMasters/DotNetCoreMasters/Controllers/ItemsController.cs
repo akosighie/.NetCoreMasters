@@ -21,7 +21,7 @@ namespace DotNetCoreMasters.Controllers
             return 0;
         }
 
-        public void Post(ItemCreateBindingModel itemModel)
+        public void Post([FromBody] ItemCreateBindingModel itemModel)
         {
             var res = new ItemService();
             var itemDTOmap = new ItemDTO();

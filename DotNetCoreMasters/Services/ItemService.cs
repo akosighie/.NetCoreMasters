@@ -33,7 +33,17 @@ namespace Services
 
         public void Save(ItemDTO itemDto)
         {
-            //Save itemDto here?????
+            var itemDomainModel = new List<ItemDomainModel>();
+
+            var configMapper = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<ItemDTO, ItemDomainModel>();
+            });
+
+            IMapper mapper = configMapper.CreateMapper();
+            var mappedItemDTO = mapper.Map(itemDto, itemDomainModel);
+
+            //saveItem(mappedItemDTO);
         }
     }
 }
