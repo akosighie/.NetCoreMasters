@@ -35,6 +35,7 @@ namespace DotNetCoreMasters
             }
 
             app.UseRouting();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
