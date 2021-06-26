@@ -1,21 +1,20 @@
 {
   "runtimeTarget": {
-    "name": ".NETStandard,Version=v2.1/",
+    "name": ".NETCoreApp,Version=v2.1",
     "signature": ""
   },
   "compilationOptions": {},
   "targets": {
-    ".NETStandard,Version=v2.1": {},
-    ".NETStandard,Version=v2.1/": {
-      "Services/1.0.0": {
+    ".NETCoreApp,Version=v2.1": {
+      "DomainModels/1.0.0": {
         "runtime": {
-          "Services.dll": {}
+          "DomainModels.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "Services/1.0.0": {
+    "DomainModels/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
