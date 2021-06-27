@@ -1,3 +1,4 @@
+using DotNetCoreMasters.Filter;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -19,6 +20,10 @@ namespace DotNetCoreMasters
         {
             services.AddControllers();
             services.AddItemService();
+            //services.AddMvc(options => { 
+            //    options.Filters.Add(typeof())
+            //});
+            services.AddMvc().AddMvcOptions(options => options.Filters.Add(new ShowElapseTimeAttribute()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

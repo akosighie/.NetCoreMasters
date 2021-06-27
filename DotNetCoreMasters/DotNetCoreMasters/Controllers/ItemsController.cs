@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DotNetCoreMasters.BindingModels;
+using DotNetCoreMasters.Filter;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 using Services.DTO;
@@ -31,10 +32,12 @@ namespace DotNetCoreMasters.Controllers
         }
 
         [HttpGet("/items/{itemId}")]
+        [EnsureItemExist]
         public IActionResult Get(int itemId)
         {
+            var item = _itemService.Get(itemId);
 
-            return Ok(itemId);
+            return Ok(item);
         }
 
 
