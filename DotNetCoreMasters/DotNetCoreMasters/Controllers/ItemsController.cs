@@ -27,7 +27,7 @@ namespace DotNetCoreMasters.Controllers
             return Ok(listItems);
         }
 
-        [HttpGet("/items/{itemId}")]
+        [HttpGet]
         public IActionResult Get(int itemId)
         {
 
@@ -35,7 +35,7 @@ namespace DotNetCoreMasters.Controllers
         }
 
 
-        [HttpGet("/items/filterBy")]
+        [HttpGet]
         public IActionResult GetByFilters([FromQuery] Dictionary<string, string> filters)
         {
             var filter = filters;
@@ -51,7 +51,7 @@ namespace DotNetCoreMasters.Controllers
             return Ok();
         }
 
-        [HttpPut("/items/{itemId}")]
+        [HttpPut]
         public IActionResult Put(int itemId, [FromBody] ItemCreateBindingModel itemCreateModel)
         {
             var newId = itemId;
@@ -60,7 +60,7 @@ namespace DotNetCoreMasters.Controllers
             return Ok();
         }
 
-        [HttpDelete("/items/{itemId}")]
+        [HttpDelete]
         public IActionResult Put(int itemId)
         {
             var newId = itemId;
