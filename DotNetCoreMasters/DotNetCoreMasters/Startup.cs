@@ -21,9 +21,6 @@ namespace DotNetCoreMasters
         {
             services.AddControllers();
             services.AddItemService();
-            //services.AddMvc(options => { 
-            //    options.Filters.Add(typeof())
-            //});
             services.AddMvc().AddMvcOptions(options => options.Filters.Add(new ShowElapseTimeAttribute()));
         }
 
