@@ -9,7 +9,9 @@ namespace Repositories.Interface
     public interface IItemRepository
     {
         IQueryable<Item> All();
+        Item GetById(int itemId);
         void Save(Item item);
         void Delete(int id);
+        void Update(Item item);
     }
 }

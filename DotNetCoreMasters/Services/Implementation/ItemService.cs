@@ -33,9 +33,9 @@ namespace Services
             _itemRepository.Save(mappedItem);
         }
 
-        public void Delete(int id)
+        public void Delete(int itemid)
         {
-            _itemRepository.Delete(id);
+            _itemRepository.Delete(itemid);
         }
 
         public ItemDTO Get(int itemId)
@@ -43,14 +43,7 @@ namespace Services
             var item = _itemRepository.All();
             var itemRepository = item.Where(i => i.ItemId == itemId).SingleOrDefault();
 
-            var itemModelDTO = new ItemDTO();
-            var configMapper = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Item, ItemDTO>();
-            });
-
-            IMapper mapper = configMapper.CreateMapper();
-            var mappedItemDTO = mapper.Map(itemRepository, itemModelDTO);
+            var mappedItemDTO = MapItemDTOFromItem(itemRepository);
 
             return mappedItemDTO;
         }
@@ -58,7 +51,27 @@ namespace Services
         public IEnumerable<ItemDTO> GetAll()
         {
             var itemListRepo = _itemRepository.All();
+            return MapListItemDTO(itemListRepo);
+        }
 
+        public IEnumerable<ItemDTO> GetAllByFilter(ItemByFilterDTO filters)
+        {
+            var listItems = _itemRepository.All();
+
+            var filteredItems = ApplyFilter(listItems, filters);
+
+            return MapListItemDTO(filteredItems);
+
+        }
+
+        public void Update(ItemDTO itemDto)
+        {
+            var mappedItem = MapItemFromDTO(itemDto);
+            _itemRepository.Update(mappedItem);
+        }
+
+        private List<ItemDTO> MapListItemDTO(IQueryable<Item> itemQueryable)
+        {
             var itemListDTO = new List<ItemDTO>();
             var configMapper = new MapperConfiguration(cfg =>
             {
@@ -66,29 +79,48 @@ namespace Services
             });
 
             IMapper mapper = configMapper.CreateMapper();
-            var mappedItemDTOEnumerable = mapper.Map(itemListRepo, itemListDTO);
+            var mappedItemDTOEnumerable = mapper.Map(itemQueryable, itemListDTO);
 
             return mappedItemDTOEnumerable;
         }
 
-        public IEnumerable<ItemDTO> GetAllByFilter(ItemByFilterDTO filters)
+        private Item MapItemFromDTO(ItemDTO itemDTO)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Update(ItemDTO itemDTO)
-        {
-            var itemModel = new Item();
-
+            var Item = new Item();
             var configMapper = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<ItemDTO, Item>();
             });
 
             IMapper mapper = configMapper.CreateMapper();
-            var mappedItem = mapper.Map(itemDTO, itemModel);
+            var mapItemFromDto = mapper.Map(itemDTO, Item);
+            return mapItemFromDto;
+        }
 
-            _itemRepository.Save(mappedItem);
+        private ItemDTO MapItemDTOFromItem(Item item)
+        {
+            var itemDTO = new ItemDTO();
+            var configMapper = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Item, ItemDTO>();
+            });
+
+            IMapper mapper = configMapper.CreateMapper();
+            var mapItemDtoFromItem = mapper.Map(item, itemDTO);
+            return mapItemDtoFromItem;
+        }
+
+        private IQueryable<Item> ApplyFilter(IQueryable<Item> items, ItemByFilterDTO filters)
+        {
+            switch (filters.columnName.ToLower())
+            {
+                case "itemname":
+                    return items.Where(p => p.ItemName.Trim().ToLower().Contains(filters.value.ToString()));
+                case "itemid":
+                    return items.Where(p => p.ItemId.ToString().Contains(filters.value.ToString()));
+                default:
+                    return null;
+            }
         }
     }
 }

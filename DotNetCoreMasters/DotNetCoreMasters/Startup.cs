@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Services.DI;
+using Services.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace DotNetCoreMasters
         {
             services.AddControllers();
             services.AddItemService();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
