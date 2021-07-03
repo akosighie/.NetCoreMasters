@@ -26,3 +26,16 @@ DotNetCoreMasters/.vs/DotNetCoreMasters/DesignTimeBuild/.dtbcache.v2
 DotNetCoreMasters/.vs/DotNetCoreMasters/v16/.suo
 DotNetCoreMasters/DotNetCoreMasters/bin/Debug/netcoreapp3.1/DotNetCoreMasters.dll
 DotNetCoreMasters/DotNetCoreMasters/obj/Debug/netcoreapp3.1/DotNetCoreMasters.dll
+DotNetCoreMasters/DotNetCoreMasters/bin/Debug/netcoreapp3.1/Repositories.dll
+DotNetCoreMasters/DotNetCoreMasters/bin/Debug/netcoreapp3.1/Repositories.pdb
+DotNetCoreMasters/DotNetCoreMasters/bin/Debug/netcoreapp3.1/Services.dll
+DotNetCoreMasters/Repositories/bin/Debug/netstandard2.1/Repositories.dll
+DotNetCoreMasters/Repositories/bin/Debug/netstandard2.1/Repositories.pdb
+DotNetCoreMasters/Repositories/obj/Debug/netstandard2.1/Repositories.csproj.CoreCompileInputs.cache
+DotNetCoreMasters/Repositories/obj/Debug/netstandard2.1/Repositories.csproj.FileListAbsolute.txt
+DotNetCoreMasters/Repositories/obj/Debug/netstandard2.1/Repositories.dll
+DotNetCoreMasters/Repositories/obj/Debug/netstandard2.1/Repositories.pdb
+DotNetCoreMasters/Services/bin/Debug/netstandard2.1/Repositories.dll
+DotNetCoreMasters/Services/bin/Debug/netstandard2.1/Repositories.pdb
+DotNetCoreMasters/Services/bin/Debug/netstandard2.1/Services.dll
+DotNetCoreMasters/Services/obj/Debug/netstandard2.1/Services.dll

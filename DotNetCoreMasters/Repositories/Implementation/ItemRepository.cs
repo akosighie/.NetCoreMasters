@@ -1,4 +1,5 @@
 ﻿using Repositories.DataContext;
+using Repositories.DataContext.Interface;
 using Repositories.Interface;
 using System;
 using System.Collections.Generic;
@@ -9,49 +10,47 @@ namespace Repositories.Implementation
 {
     public class ItemRepository : IItemRepository
     {
-
-        public ItemRepository()
+        private IItemContext _itemContext;
+        public ItemRepository(IItemContext itemContext)
         {
+            _itemContext = itemContext;
         }
 
         public IQueryable<Item> All()
         {
-            return ListOfItems().AsQueryable();
+            return _itemContext.ListOfItems().AsQueryable();
+        }
+
+        public Item GetById(int itemId)
+        {
+            return _itemContext.ListOfItems().Where(i => i.ItemId == itemId).SingleOrDefault();
         }
 
         public void Delete(int id)
         {
-            var item = ListOfItems().Where(i => i.ItemId == id).SingleOrDefault();
-            ListOfItems().Remove(item);
+            var item = _itemContext.ListOfItems().Where(i => i.ItemId == id).SingleOrDefault();
+            _itemContext.ListOfItems().Remove(item);
         }
 
         public void Save(Item item)
         {
-            var isExist = ListOfItems().Where(i => i.ItemId == item.ItemId).Any();
+            var isExist = _itemContext.ListOfItems().Where(i => i.ItemId == item.ItemId).Any();
 
             if (!isExist)
-            ListOfItems().Add(item);
+                _itemContext.ListOfItems().Add(item);
         }
 
-        private List<Item> ListOfItems()
+        public void Update(Item item)
         {
-            return new List<Item>()
+            var listOfItems = _itemContext.ListOfItems();
+
+            foreach (Item i in listOfItems)
             {
-                new Item{
-                    ItemId = 1,
-                    ItemName = "First Item"
-                },
-                 new Item{
-                    ItemId = 2,
-                    ItemName = "Second Item"
-                },
-                  new Item{
-                    ItemId = 3,
-                    ItemName = "Third Item"
+                if (i.ItemId == item.ItemId)
+                {
+                    i.ItemName = item.ItemName;
                 }
-            };
+            }
         }
-
-
     }
 }

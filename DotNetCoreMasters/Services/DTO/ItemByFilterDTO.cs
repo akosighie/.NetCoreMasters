@@ -6,5 +6,7 @@ namespace Services.DTO
 {
     public class ItemByFilterDTO
     {
+        public string columnName { get; set; }
+        public string value { get; set; }
     }
 }
