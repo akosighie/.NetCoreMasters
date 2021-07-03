@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Repositories.DataContext;
+using Repositories.DataContext.Interface;
 using Repositories.Implementation;
 using Repositories.Interface;
 using Services.Interface;
@@ -14,6 +16,7 @@ namespace Services.DI
         {
             services.AddScoped<IItemService, ItemService>();
             services.AddScoped<IItemRepository, ItemRepository>();
+            services.AddScoped<IItemContext, ItemContainer>();
 
             return services; // By convention return IServiceCollection to allow method chaining
         }

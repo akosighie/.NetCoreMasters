@@ -1,11 +1,16 @@
-﻿using System;
+﻿using Repositories.DataContext.Interface;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Repositories.DataContext
 {
-    public class ItemContainer
+    public class ItemContext : IItemContext
     {
+        public ItemContext()
+        {
+        }
+
         public List<Item> ListOfItems()
         {
             return new List<Item>()
