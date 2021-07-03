@@ -12,19 +12,18 @@ using System.Threading.Tasks;
 
 namespace DotNetCoreMasters.Controllers
 {
-    [Route("[controller]")]
+    [Route("items")]
     public class ItemsController : ControllerBase
     {
         private readonly IItemService _itemService;
-        private readonly ItemDTO _itemDTO;
 
-        public ItemsController(IItemService itemService, ItemDTO itemDTO, ItemByFilterDTO itemDTOFilter)
+
+        public ItemsController(IItemService itemService)
         {
             _itemService = itemService;
-            _itemDTO = itemDTO;
         }
 
-        [HttpGet]
+        [HttpGet("/")]
         public IActionResult GetAll()
         {
             var listItems = _itemService.GetAll().ToList();
@@ -32,7 +31,7 @@ namespace DotNetCoreMasters.Controllers
             return Ok(listItems);
         }
 
-        [HttpGet]
+        [HttpGet("/items/{itemId}")]
         public IActionResult Get(int itemId)
         {
 
@@ -42,10 +41,10 @@ namespace DotNetCoreMasters.Controllers
         }
 
 
-        [HttpGet]
-        public IActionResult GetByFilters([FromQuery] Dictionary<string, string> filters)
+        [HttpGet("/items/filterBy")]
+        public IActionResult GetByFilters([FromQuery] Dictionary<string, string> filterBy)
         {
-            var filterDto = filters.Select(f => new ItemByFilterDTO { columnName = f.Key, value = f.Value }).SingleOrDefault();
+            var filterDto = filterBy.Select(f => new ItemByFilterDTO { columnName = f.Key, value = f.Value }).SingleOrDefault();
             var items = _itemService.GetAllByFilter(filterDto);
 
             return Ok(items);
@@ -54,19 +53,26 @@ namespace DotNetCoreMasters.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] ItemCreateBindingModel itemCreateModel)
         {
-            _itemDTO.ItemName = itemCreateModel.itemString;
-            _itemService.Add(_itemDTO);
 
+            var itemDTO = new ItemDTO
+            {
+                ItemName = itemCreateModel.itemString
+            };
+
+            _itemService.Add(itemDTO);
             return Ok();
         }
 
         [HttpPut]
         public IActionResult Put(int itemId, [FromBody] ItemCreateBindingModel itemCreateModel)
         {
-            _itemDTO.ItemName = itemCreateModel.itemString;
-            _itemDTO.ItemId = itemId;
+            var itemDTO = new ItemDTO
+            {
+                ItemId = itemId,
+                ItemName = itemCreateModel.itemString
+            };
 
-            _itemService.Update(_itemDTO);
+            _itemService.Update(itemDTO);
             return Ok();
         }
 

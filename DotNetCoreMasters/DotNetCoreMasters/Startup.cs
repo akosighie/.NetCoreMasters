@@ -20,8 +20,7 @@ namespace DotNetCoreMasters
         {
             services.AddControllers();
             services.AddItemService();
-            services.AddScoped<ItemDTO>();
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

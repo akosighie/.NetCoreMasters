@@ -112,14 +112,14 @@ namespace Services
 
         private IQueryable<Item> ApplyFilter(IQueryable<Item> items, ItemByFilterDTO filters)
         {
-            switch (filters.columnName)
+            switch (filters.columnName.ToLower())
             {
-                case "ItemName":
-                    return items.Where(p => p.ItemName.Contains(filters.value.ToString()));
-                case "ItemId":
+                case "itemname":
+                    return items.Where(p => p.ItemName.Trim().ToLower().Contains(filters.value.ToString()));
+                case "itemid":
                     return items.Where(p => p.ItemId.ToString().Contains(filters.value.ToString()));
                 default:
-                    return items;
+                    return null;
             }
         }
     }
