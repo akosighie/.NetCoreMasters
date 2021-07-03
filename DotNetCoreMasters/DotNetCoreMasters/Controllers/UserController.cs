@@ -27,7 +27,7 @@ namespace DotNetCoreMasters.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("/login")]
         public IActionResult Login([FromBody] LoginModel loginModel)
         {
             return Ok(_settings.SecurityKey);
