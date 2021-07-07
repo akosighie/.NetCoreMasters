@@ -1,13 +1,10 @@
-﻿using AutoMapper;
-using DotNetCoreMasters.BindingModels;
+﻿using DotNetCoreMasters.BindingModels;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 using Services.DTO;
 using Services.Interface;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 
 namespace DotNetCoreMasters.Controllers
@@ -63,7 +60,7 @@ namespace DotNetCoreMasters.Controllers
             return Ok();
         }
 
-        [HttpPut]
+        [HttpPut("/items/{itemId}")]
         public IActionResult Put(int itemId, [FromBody] ItemCreateBindingModel itemCreateModel)
         {
             var itemDTO = new ItemDTO
