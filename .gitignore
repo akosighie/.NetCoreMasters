@@ -26,6 +26,11 @@ DotNetCoreMasters/.vs/DotNetCoreMasters/DesignTimeBuild/.dtbcache.v2
 DotNetCoreMasters/.vs/DotNetCoreMasters/v16/.suo
 DotNetCoreMasters/DotNetCoreMasters/bin/Debug/netcoreapp3.1/DotNetCoreMasters.dll
 DotNetCoreMasters/DotNetCoreMasters/obj/Debug/netcoreapp3.1/DotNetCoreMasters.dll
+DotNetCoreMasters/Repositories/obj/project.assets.json
+DotNetCoreMasters/Repositories/obj/project.nuget.cache
+DotNetCoreMasters/Repositories/obj/Repositories.csproj.nuget.dgspec.json
+DotNetCoreMasters/Repositories/obj/Repositories.csproj.nuget.g.props
+DotNetCoreMasters/Repositories/obj/Repositories.csproj.nuget.g.targets
 DotNetCoreMasters/DotNetCoreMasters/bin/Debug/netcoreapp3.1/Repositories.dll
 DotNetCoreMasters/DotNetCoreMasters/bin/Debug/netcoreapp3.1/Repositories.pdb
 DotNetCoreMasters/DotNetCoreMasters/bin/Debug/netcoreapp3.1/Services.dll
@@ -39,3 +44,4 @@ DotNetCoreMasters/Services/bin/Debug/netstandard2.1/Repositories.dll
 DotNetCoreMasters/Services/bin/Debug/netstandard2.1/Repositories.pdb
 DotNetCoreMasters/Services/bin/Debug/netstandard2.1/Services.dll
 DotNetCoreMasters/Services/obj/Debug/netstandard2.1/Services.dll
+/DotNetCoreMasters/Repositories/obj/Debug/netstandard2.1/Repositories.csprojAssemblyReference.cache

@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using DotNetCoreMasters.BindingModels;
+﻿using DotNetCoreMasters.BindingModels;
 using DotNetCoreMasters.Filter;
 using Microsoft.AspNetCore.Mvc;
 using Services;
@@ -8,8 +7,6 @@ using Services.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-
 
 namespace DotNetCoreMasters.Controllers
 {
@@ -64,7 +61,7 @@ namespace DotNetCoreMasters.Controllers
             return Ok();
         }
 
-        [HttpPut]
+        [HttpPut("/items/{itemId}")]
         public IActionResult Put(int itemId, [FromBody] ItemCreateBindingModel itemCreateModel)
         {
             var itemDTO = new ItemDTO
@@ -77,7 +74,7 @@ namespace DotNetCoreMasters.Controllers
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("/items/{itemId}")]
         public IActionResult Delete(int itemid)
         {
             _itemService.Delete(itemid);

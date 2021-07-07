@@ -10,39 +10,39 @@ namespace Repositories.Implementation
 {
     public class ItemRepository : IItemRepository
     {
-        private IItemContext _itemContext;
-        public ItemRepository(IItemContext itemContext)
+        private IDataContext _dataContext;
+        public ItemRepository(IDataContext dataContext)
         {
-            _itemContext = itemContext;
+            _dataContext = dataContext;
         }
 
         public IQueryable<Item> All()
         {
-            return _itemContext.ListOfItems().AsQueryable();
+            return _dataContext.ListOfItems().AsQueryable();
         }
 
         public Item GetById(int itemId)
         {
-            return _itemContext.ListOfItems().Where(i => i.ItemId == itemId).SingleOrDefault();
+            return _dataContext.ListOfItems().Where(i => i.ItemId == itemId).SingleOrDefault();
         }
 
         public void Delete(int id)
         {
-            var item = _itemContext.ListOfItems().Where(i => i.ItemId == id).SingleOrDefault();
-            _itemContext.ListOfItems().Remove(item);
+            var item = _dataContext.ListOfItems().Where(i => i.ItemId == id).SingleOrDefault();
+            _dataContext.ListOfItems().Remove(item);
         }
 
         public void Save(Item item)
         {
-            var isExist = _itemContext.ListOfItems().Where(i => i.ItemId == item.ItemId).Any();
+            var isExist = _dataContext.ListOfItems().Where(i => i.ItemId == item.ItemId).Any();
 
             if (!isExist)
-                _itemContext.ListOfItems().Add(item);
+                _dataContext.ListOfItems().Add(item);
         }
 
         public void Update(Item item)
         {
-            var listOfItems = _itemContext.ListOfItems();
+            var listOfItems = _dataContext.ListOfItems();
 
             foreach (Item i in listOfItems)
             {
