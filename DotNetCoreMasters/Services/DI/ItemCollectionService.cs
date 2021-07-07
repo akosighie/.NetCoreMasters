@@ -16,7 +16,7 @@ namespace Services.DI
         {
             services.AddScoped<IItemService, ItemService>();
             services.AddScoped<IItemRepository, ItemRepository>();
-            services.AddScoped<IItemContext, ItemContext>();
+            services.AddScoped<IDataContext, DataContext>();
 
             return services; // By convention return IServiceCollection to allow method chaining
         }
