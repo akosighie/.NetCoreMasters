@@ -1,20 +1,14 @@
-﻿using AutoMapper;
-using DotNetCoreMasters.BindingModels;
+﻿using DotNetCoreMasters.BindingModels;
 using Microsoft.AspNetCore.Mvc;
-using Services;
-using Services.DTO;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 
 namespace DotNetCoreMasters.Controllers
 {
-    [Route("[controller]")]
+    [Route("items")]
     public class ItemsController : ControllerBase
     {
-        [HttpGet]
+        [HttpGet("/")]
         public IActionResult GetAll()
         {
             var listItems = new List<string>()
@@ -27,14 +21,14 @@ namespace DotNetCoreMasters.Controllers
             return Ok(listItems);
         }
 
-        [HttpGet]
+        [HttpGet("/items/{itemId}")]
         public IActionResult Get(int itemId)
         {
 
             return Ok(itemId);
         }
 
-
+        [HttpGet("/items/filterBy")]
         [HttpGet]
         public IActionResult GetByFilters([FromQuery] Dictionary<string, string> filters)
         {
@@ -51,7 +45,7 @@ namespace DotNetCoreMasters.Controllers
             return Ok();
         }
 
-        [HttpPut]
+        [HttpPut("/items/{itemId}")]
         public IActionResult Put(int itemId, [FromBody] ItemCreateBindingModel itemCreateModel)
         {
             var newId = itemId;
@@ -60,7 +54,7 @@ namespace DotNetCoreMasters.Controllers
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("/items/{itemId}")]
         public IActionResult Put(int itemId)
         {
             var newId = itemId;
