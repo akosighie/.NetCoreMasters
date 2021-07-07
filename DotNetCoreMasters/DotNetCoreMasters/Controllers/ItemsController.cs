@@ -5,7 +5,7 @@ using Services.DTO;
 using Services.Interface;
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 
 namespace DotNetCoreMasters.Controllers
 {
@@ -73,7 +73,7 @@ namespace DotNetCoreMasters.Controllers
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("/items/{itemId}")]
         public IActionResult Delete(int itemid)
         {
             _itemService.Delete(itemid);
