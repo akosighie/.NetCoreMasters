@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Repositories.DataContext.Interface
 {
-    public interface IItemContext
+    public interface IDataContext
     {
         List<Item> ListOfItems();
     }

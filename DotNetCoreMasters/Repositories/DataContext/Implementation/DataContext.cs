@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Repositories.DataContext
 {
-    public class ItemContext : IItemContext
+    public class DataContext : IDataContext
     {
-        public ItemContext()
+        public DataContext()
         {
         }
 
