@@ -19,7 +19,7 @@ namespace DotNetCoreMasters.Controllers
 
         }
 
-        [HttpGet("/login/test")]
+        [HttpGet("/login")]
         public IActionResult Index()
         {
             return Ok(_configSettings);
