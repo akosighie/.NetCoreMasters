@@ -8,31 +8,29 @@ using System.Threading.Tasks;
 
 namespace DotNetCoreMasters.Controllers
 {
-    [Route("[controller]")]
-    public class UserController : Controller
+    [Route("login")]
+    public class UserController : ControllerBase
     {
-        private readonly JwtSettings _settings;
+        private readonly Keys.Authentication _configSettings;
         public UserController(
-            IOptionsSnapshot<JwtSettings> options)
+            IOptions<Keys.Authentication> options)
         {
-            _settings = options.Value;
-            var securityKey = _settings.SecurityKey;
-            var issuer = _settings.Issuer;
-            var audience = _settings.Audience;
+            _configSettings = options.Value;
+
         }
 
-        [HttpGet]
+        [HttpGet("/login/test")]
         public IActionResult Index()
         {
-            return View();
+            return Ok(_configSettings);
         }
 
         [HttpPost("/login")]
         public IActionResult Login([FromBody] LoginModel loginModel)
         {
-            return Ok(_settings.SecurityKey);
+            return Ok(_configSettings.jwt.SecurityKey);
         }
 
-      
+
     }
 }
