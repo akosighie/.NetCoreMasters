@@ -21,6 +21,6 @@ namespace DotNetCoreMasters
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                });      
     }
 }
