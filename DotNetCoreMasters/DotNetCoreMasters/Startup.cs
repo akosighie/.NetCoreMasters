@@ -1,5 +1,6 @@
 using DotNetCoreMasters.BindingModels;
 using DotNetCoreMasters.Keys;
+using DotNetCoreMasters.Filter;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -32,6 +33,7 @@ namespace DotNetCoreMasters
             services.AddItemService();
             services.Configure<Keys.Authentication>(Configuration.GetSection(nameof(Authentication)));
 
+            services.AddMvc().AddMvcOptions(options => options.Filters.Add(new ShowElapseTimeAttribute()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
