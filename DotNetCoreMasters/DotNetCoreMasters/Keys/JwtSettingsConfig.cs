@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DotNetCoreMasters.BindingModels
+namespace DotNetCoreMasters.Keys
 {
-    public class JwtSettings
+    public class Authentication
+    {
+        public JWT jwt { get; set; }
+    }
+
+    public class JWT
     {
         public string SecurityKey { get; set; }
         public string Issuer { get; set; }
         public string Audience { get; set; }
-
     }
 }

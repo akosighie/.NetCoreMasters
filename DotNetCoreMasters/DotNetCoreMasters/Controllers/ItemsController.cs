@@ -22,7 +22,7 @@ namespace DotNetCoreMasters.Controllers
             _itemService = itemService;
         }
 
-        [HttpGet("/")]
+        [HttpGet("/items")]
         public IActionResult GetAll()
         {
             var listItems = _itemService.GetAll().ToList();
