@@ -8,7 +8,8 @@ namespace Repositories.DataContext
     public class Item
     {
         [Key]
-        public string ItemName { get; set; }
         public int ItemId { get; set; }
+        public string ItemName { get; set; }
+
     }
 }

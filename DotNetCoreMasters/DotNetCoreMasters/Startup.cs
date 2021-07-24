@@ -14,6 +14,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Repositories.DatabaseContext.DataContextModel;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Repositories.Implementation;
+using Repositories.Interface;
+using Services.Interface;
+using Services.Implementation;
 
 namespace DotNetCoreMasters
 {
@@ -31,6 +38,10 @@ namespace DotNetCoreMasters
         {
             services.AddControllers();
             services.AddItemService();
+            services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddDbContext<DotNetCoreDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DotNetCoreDBContext>();
             services.Configure<Keys.Authentication>(Configuration.GetSection(nameof(Authentication)));
 
             services.AddMvc().AddMvcOptions(options => options.Filters.Add(new ShowElapseTimeAttribute()));
@@ -50,7 +61,9 @@ namespace DotNetCoreMasters
             }
 
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
