@@ -1,4 +1,6 @@
 ﻿using DotNetCoreMasters.BindingModels;
+using DotNetCoreMasters.Filter;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 using Services.DTO;
@@ -10,6 +12,7 @@ using System.Linq;
 namespace DotNetCoreMasters.Controllers
 {
     [Route("items")]
+    [Authorize]
     public class ItemsController : ControllerBase
     {
         private readonly IItemService _itemService;
@@ -29,9 +32,9 @@ namespace DotNetCoreMasters.Controllers
         }
 
         [HttpGet("/items/{itemId}")]
+        [EnsureItemExist]
         public IActionResult Get(int itemId)
         {
-
             var item = _itemService.Get(itemId);
 
             return Ok(item);
@@ -61,6 +64,7 @@ namespace DotNetCoreMasters.Controllers
         }
 
         [HttpPut("/items/{itemId}")]
+        [EnsureItemExist]
         public IActionResult Put(int itemId, [FromBody] ItemCreateBindingModel itemCreateModel)
         {
             var itemDTO = new ItemDTO
@@ -74,6 +78,7 @@ namespace DotNetCoreMasters.Controllers
         }
 
         [HttpDelete("/items/{itemId}")]
+        [EnsureItemExist]
         public IActionResult Delete(int itemid)
         {
             _itemService.Delete(itemid);

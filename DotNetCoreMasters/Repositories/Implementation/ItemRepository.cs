@@ -1,5 +1,5 @@
-﻿using Repositories.DataContext;
-using Repositories.DataContext.Interface;
+﻿using Repositories.DatabaseContext.DataContextModel;
+using Repositories.DataContext;
 using Repositories.Interface;
 using System;
 using System.Collections.Generic;
@@ -9,47 +9,51 @@ using System.Text;
 namespace Repositories.Implementation
 {
     public class ItemRepository : IItemRepository
-    {
-        private IDataContext _dataContext;
-        public ItemRepository(IDataContext dataContext)
+    {        
+        private readonly DotNetCoreDBContext _context;
+        public ItemRepository(DotNetCoreDBContext context)
         {
-            _dataContext = dataContext;
+            _context = context;
         }
 
         public IQueryable<Item> All()
         {
-            return _dataContext.ListOfItems().AsQueryable();
+            return _context.Items.AsQueryable();
         }
 
         public Item GetById(int itemId)
         {
-            return _dataContext.ListOfItems().Where(i => i.ItemId == itemId).SingleOrDefault();
+            return _context.Items.Where(i => i.ItemId == itemId).FirstOrDefault();
         }
 
         public void Delete(int id)
         {
-            var item = _dataContext.ListOfItems().Where(i => i.ItemId == id).SingleOrDefault();
-            _dataContext.ListOfItems().Remove(item);
+            var item = _context.Items.Where(i => i.ItemId == id).FirstOrDefault();
+
+            if (item != null)
+                _context.Items.Remove(item);
+            _context.SaveChanges();
         }
 
         public void Save(Item item)
         {
-            var isExist = _dataContext.ListOfItems().Where(i => i.ItemId == item.ItemId).Any();
+            var isExist = _context.Items.Where(i => i.ItemName.Trim().ToLower() == item.ItemName.Trim().ToLower()).Any();
 
             if (!isExist)
-                _dataContext.ListOfItems().Add(item);
+            {
+                _context.Items.Add(item);
+                _context.SaveChanges();
+            }
         }
 
         public void Update(Item item)
         {
-            var listOfItems = _dataContext.ListOfItems();
+            var itemToUpdate = _context.Items.Where(i => i.ItemId == item.ItemId).FirstOrDefault();
 
-            foreach (Item i in listOfItems)
+            if (itemToUpdate != null)
             {
-                if (i.ItemId == item.ItemId)
-                {
-                    i.ItemName = item.ItemName;
-                }
+                itemToUpdate.ItemName = item.ItemName;
+                _context.SaveChanges();
             }
         }
     }

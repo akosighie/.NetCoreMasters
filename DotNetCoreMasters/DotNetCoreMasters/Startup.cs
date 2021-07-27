@@ -1,5 +1,6 @@
 using DotNetCoreMasters.BindingModels;
 using DotNetCoreMasters.Keys;
+using DotNetCoreMasters.Filter;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +14,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Repositories.DatabaseContext.DataContextModel;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Repositories.Implementation;
+using Repositories.Interface;
+using Services.Interface;
+using Services.Implementation;
 
 namespace DotNetCoreMasters
 {
@@ -30,8 +38,21 @@ namespace DotNetCoreMasters
         {
             services.AddControllers();
             services.AddItemService();
+            services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddDbContext<DotNetCoreDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<DotNetCoreDBContext>()
+                .AddDefaultTokenProviders();
+            services.Configure<IdentityOptions>(options => 
+            { 
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+
+            });
             services.Configure<Keys.Authentication>(Configuration.GetSection(nameof(Authentication)));
 
+            services.AddMvc().AddMvcOptions(options => options.Filters.Add(new ShowElapseTimeAttribute()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +69,9 @@ namespace DotNetCoreMasters
             }
 
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
