@@ -5,6 +5,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataContext\Implementation\**" />
+    <Compile Remove="DataContext\Interface\**" />
+    <Compile Remove="Migrations\**" />
+    <EmbeddedResource Remove="DataContext\Implementation\**" />
+    <EmbeddedResource Remove="DataContext\Interface\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="DataContext\Implementation\**" />
+    <None Remove="DataContext\Interface\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Migrations\20210727075511_Initial.cs" />
+    <Compile Include="Migrations\20210727075511_Initial.Designer.cs" />
+    <Compile Include="Migrations\DotNetCoreDBContextModelSnapshot.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
@@ -12,12 +31,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DataContext\Implementation\" />
-    <Folder Include="DataContext\Interface\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,6 @@
 ﻿using DotNetCoreMasters.BindingModels;
 using DotNetCoreMasters.Filter;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 using Services.DTO;
@@ -10,7 +11,8 @@ using System.Linq;
 
 namespace DotNetCoreMasters.Controllers
 {
-    [Route("items")]    
+    [Route("items")]
+    [Authorize]
     public class ItemsController : ControllerBase
     {
         private readonly IItemService _itemService;

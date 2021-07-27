@@ -46,7 +46,9 @@ namespace DotNetCoreMasters
                 .AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(options => 
             { 
-                options.Password.RequireNonAlphanumeric = false; 
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+
             });
             services.Configure<Keys.Authentication>(Configuration.GetSection(nameof(Authentication)));
 

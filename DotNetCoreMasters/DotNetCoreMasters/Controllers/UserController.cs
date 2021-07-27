@@ -49,7 +49,7 @@ namespace DotNetCoreMasters.Controllers
         }
 
         [HttpPost("/user/login")]
-        public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
+        public async Task<IActionResult> Index([FromBody] LoginModel loginModel)
         {
             var loginDTO = new LoginDTO
             {
