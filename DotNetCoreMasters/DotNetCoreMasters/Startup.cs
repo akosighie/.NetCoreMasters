@@ -41,7 +41,13 @@ namespace DotNetCoreMasters
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddDbContext<DotNetCoreDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DotNetCoreDBContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<DotNetCoreDBContext>()
+                .AddDefaultTokenProviders();
+            services.Configure<IdentityOptions>(options => 
+            { 
+                options.Password.RequireNonAlphanumeric = false; 
+            });
             services.Configure<Keys.Authentication>(Configuration.GetSection(nameof(Authentication)));
 
             services.AddMvc().AddMvcOptions(options => options.Filters.Add(new ShowElapseTimeAttribute()));

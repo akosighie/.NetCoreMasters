@@ -7,5 +7,6 @@ namespace Services.Interface
     public interface IAccountService
     {
         Task<IdentityResult> Signup(SignupDTO signupDto);
+        Task<SignInResult> Login(LoginDTO login);
     }
 }

@@ -24,6 +24,24 @@ namespace Services.Implementation
         {
             var signup = MapSignupFromDTO(signupDto);
             var result = await _accountRepository.CreateUserAsync(signup);
+
+            if (result.Succeeded)
+            {
+                await _accountRepository.SendEmailToken(signup);
+            }
+
+            return result;
+        }
+
+        public async Task<SignInResult> Login(LoginDTO login)
+        {
+            var signinModel = new SignIn
+            {
+                UserName = login.UserName,
+                Password = login.Password
+            };
+
+            var result = await _accountRepository.SignIn(signinModel);
             return result;
         }
 

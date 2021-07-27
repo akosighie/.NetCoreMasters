@@ -11,7 +11,7 @@ using Services.DTO;
 
 namespace DotNetCoreMasters.Controllers
 {
-    [Route("login")]
+    [Route("user")]
     public class UserController : ControllerBase
     {
         private readonly Keys.Authentication _configSettings;
@@ -24,7 +24,7 @@ namespace DotNetCoreMasters.Controllers
             _accountService = accountService;
         }
 
-        [HttpPost("/login/signup")]
+        [HttpPost("/user/signup")]
         public async Task<IActionResult> Index([FromBody] SignupModel signup)
         {
             var signupDTO = new SignupDTO
@@ -48,10 +48,23 @@ namespace DotNetCoreMasters.Controllers
 
         }
 
-        [HttpPost("/login")]
-        public IActionResult Login([FromBody] LoginModel loginModel)
+        [HttpPost("/user/login")]
+        public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
         {
-            return Ok(_configSettings.jwt.SecurityKey);
+            var loginDTO = new LoginDTO
+            {
+                UserName = loginModel.UserName,
+                Password = loginModel.Password
+            };
+
+            var result = await _accountService.Login(loginDTO);
+
+            if (result.Succeeded)
+            {
+                return Ok(_configSettings.jwt.SecurityKey);
+            }
+
+            return NotFound("Invalid username or password!.");
         }
 
 
